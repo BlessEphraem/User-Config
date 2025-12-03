@@ -1,0 +1,12 @@
+[NAME] = CineformQ4
+[DESCRIPTION] = Cineform CFHD film3+, conserve toutes pistes audio en PCM 24-bit
+[COMMAND] = -map 0 -c:v cfhd -quality 0 -c:a pcm_s24le
+---
+[NAME] = ProResLT
+[DESCRIPTION] = Apple ProRes LT assez léger, toutes pistes audio
+[COMMAND] = -map 0 -c:v prores_ks -profile:v 1 -c:a copy
+---
+[NAME] = DNxHR_HQ
+[DESCRIPTION] = DNxHR HQ en MOV pour montage
+[COMMAND] = -map 0 -c:v dnxhd -b:v 145M -c:a copy
+---

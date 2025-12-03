@@ -1,0 +1,519 @@
+:root {
+    /* =========================================
+       1. PALETTE DE COULEURS (GLOBAL VARIABLES)
+       ========================================= */
+    
+    /* Couleurs de fond */
+    --bg-base:      #2b2b2b; /* Gris principal */
+    --bg-darker:    #1e1e1e; /* Zones enfoncées */
+    --bg-lighter:   #3d3d3d; /* Hover / Zones claires */
+    --bg-bar:       #1a1a1a; /* La barre elle-même */
+
+    /* Couleurs d'accentuation (Dracula/Neon Palette) */
+    --col-white:            #e0e0e0;
+    --col-dim:              #858585;
+    --col-accent:           #bd93f9;
+    --col-red:              #ff2323;
+    --col-orange:           #ff7f23;
+    --col-yellow:           #ffee00;
+    --col-blue:             #0059ff;
+    --col-navy:             #4b81ff;
+    --col-cyan:             #50dfff;
+    --col-success:          #3fff6f;
+    --col-warning:          #ffb86c;
+    --col-error:            #ff5555;
+    --col-black:            #11111b;
+    --col-true-black:       #000000;
+
+    /* =========================================
+       2. CONFIGURATION DU RETRO-STYLING
+       ========================================= */
+    
+    /* Dimensions */
+    --font-main:              "JetBrainsMono NFP", monospace;
+    --font-size:              14px;
+    --icon-size:              18px;
+    --icon-adjust:            -2px 0 0 0;
+    --radius:                 2px;     /* Arrondi léger */
+    --border-w:               2px;     /* Epaisseur du relief 3D */
+    
+    /* Lumière et Ombre pour l'effet 3D */
+    --light-source:         rgba(255, 255, 255, 0.15);
+    --shadow-source:        rgba(0, 0, 0, 0.6);
+
+    --grad-neon-1:          #e100ff;    --grad-neon-2:          #7f00ff;
+    --grad-neon:        qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-neon-1), stop:1 var(--grad-neon-2));
+    
+    --grad-warm-1:          #ffb86c;    --grad-warm-2:          #ff5555;
+    --grad-warm:        qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-warm-1), stop:1 var(--grad-warm-2));
+
+    --grad-weather-1:       #283e51;    --grad-weather-2:       #0a2342;
+    --grad-weather:     qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-weather-1), stop:1 var(--grad-weather-2));
+    
+    --grad-traffic-1:       #ffee00;    --grad-traffic-2:       #ffb86c;
+    --grad-traffic:     qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-traffic-1), stop:1 var(--grad-traffic-2));
+
+    --grad-media-1:         #ff3c00;    --grad-media-2:         #aa0000;
+    --grad-media:       qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-media-1), stop:1 var(--grad-media-2));
+
+    --grad-bt-1:            #00c3ff;    --grad-bt-2:            #1100ff;
+    --grad-bt:          qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-bt-1), stop:1 var(--grad-bt-2));
+
+    --grad-komorebi-1:      #00ff99;    --grad-komorebi-2:      #00cde0;
+    --grad-komorebi:    qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-komorebi-1), stop:1 var(--grad-komorebi-2));
+
+    --grad-cpu-1:           #ff2323;    --grad-cpu-2:           #5c0000;
+    --grad-cpu:         qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-cpu-1), stop:1 var(--grad-cpu-2));
+
+    --grad-gpu-1:           #85c1ff;    --grad-gpu-2:           #4b81ff;
+    --grad-gpu:         qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-gpu-1), stop:1 var(--grad-gpu-2));
+
+    --grad-mem-1:           #ffb86c;    --grad-mem-2:           #ff7f23;
+    --grad-mem:         qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-mem-1), stop:1 var(--grad-mem-2));
+
+    --grad-clock-1:         #50fa7b;    --grad-clock-2:         #00802b;
+    --grad-clock:       qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-clock-1), stop:1 var(--grad-clock-2));
+
+    --grad-vol-1:           #00e1ff;    --grad-vol-2:           #0091ff;
+    --grad-vol:         qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-vol-1), stop:1 var(--grad-vol-2));
+
+    --grad-lang-1:          #ff79c6;    --grad-lang-2:          #d63384;
+    --grad-lang:        qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-lang-1), stop:1 var(--grad-lang-2));
+            
+}
+
+/* =========================================
+   RESET & BASE
+   ========================================= */
+* {
+    font-family: var(--font-main);
+    font-size: var(--font-size);
+    font-weight: 800;
+    color: var(--col-black);
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================================
+   STRUCTURE PRINCIPALE
+   ========================================= */
+.yasb-bar {
+    background-color: #00000000;
+    padding: 2px 4px;
+}
+
+/* Widget par défaut (Effet 3D Sortant) */
+.widget-container {
+    padding: 0 10px;
+}
+
+.widget {
+    margin: 2px 3px;
+    background: var(--col-dim);
+    
+    /* Optimization 3D borders... */
+    border-style: solid;
+    border-width: var(--border-w);
+    border-color: var(--light-source) var(--shadow-source) var(--shadow-source) var(--light-source);
+
+    /* --- AJOUTS POUR LE CENTRAGE (FLEXBOX) --- */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1; /* Reset line-height pour meilleur centrage icone */
+}
+
+.widget:hover {
+    background: var(--bg-lighter);
+}
+
+/* Icones génériques */
+.icon {
+    font-size: var(--icon-size);
+    margin-right: 4px;
+}
+
+/* Icones Ajustée */
+.bluetooth-widget .icon,
+.volume-widget .icon {
+    padding: var(--icon-adjust); 
+}
+
+/* Tooltips */
+.tooltip {
+    background: var(--bg-base);
+    color: var(--col-white);
+    border: 1px solid var(--col-accent);
+    padding: 4px 8px;
+}
+
+/* =========================================
+   STYLES DES POPUPS / MENUS
+   ========================================= */
+.power-menu-popup, 
+.traffic-menu, 
+.weather-card, 
+.calendar, 
+.media-menu,
+.language-menu,
+.audio-menu {
+    background-color: var(--bg-base);
+    padding: 4px;
+    /* Double bordure simulée */
+    border-style: solid;
+    border-width: var(--border-w);
+    border-color: var(--light-source) var(--shadow-source) var(--shadow-source) var(--light-source);
+    border: 2px solid var(--bg-lighter); 
+    border-radius: 0;
+}
+
+/* =========================================
+   WIDGETS: KOMOREBI (Workspaces)
+   ========================================= */
+.komorebi-workspaces {
+    background: var(--grad-komorebi);
+}
+
+.komorebi-workspaces .ws-btn {
+    font-size: var(--icon-size);
+    background-color: transparent;
+    padding: 2px 6px;
+    margin: 0 1px;
+    border-radius: var(--radius);
+}
+
+/* =========================================
+   WIDGET: BLUETOOTH
+   ========================================= */
+.bluetooth-widget {
+    background: var(--grad-bt);
+}
+
+/* =========================================
+   WIDGETS: ACTIVE WINDOW
+   ========================================= */
+.active-window-widget {
+    background: var(--grad-neon);
+    color: var(--bg-bar);
+    padding: 0 15px;
+    margin: 2px 3px;
+    border-radius: var(--radius);
+    
+    border-style: solid;
+    border-width: var(--border-w);
+    border-color: rgba(255,255,255,0.4) rgba(0,0,0,0.2) rgba(0,0,0,0.2) rgba(255,255,255,0.4);
+}
+
+/* =========================================
+   WIDGET: TRAFFIC
+   ========================================= */
+.traffic-widget {
+    background: var(--grad-traffic);
+}
+
+.traffic-widget .icon.offline { color: var(--col-error); }
+
+.traffic-menu .header .title {
+    background: var(--grad-neon);
+    color: var(--bg-bar);
+    border: 1px solid var(--light-source);
+    margin-bottom: 6px;
+}
+
+.traffic-menu .section {
+    color: var(--col-dim);
+    background: var(--bg-darker);
+    margin: 4px 0;
+    /* Effet Enfoncé */
+    border-style: solid;
+    border-width: var(--border-w);
+    border-color: var(--shadow-source) var(--light-source) var(--light-source) var(--shadow-source);
+}
+
+/* Etats Internet (Menu Traffic) */
+.traffic-menu .internet-info {
+    padding: 4px 8px;
+    margin: 4px;
+    border-radius: var(--radius);
+    text-align: center;
+    border-style: solid;
+    border-width: var(--border-w);
+    border-color: var(--shadow-source) var(--light-source) var(--light-source) var(--shadow-source);
+}
+.traffic-menu .internet-info.checking     { color: var(--col-yellow); background: rgba(241, 250, 140, 0.15); }
+.traffic-menu .internet-info.connected    { color: var(--col-success); background: rgba(80, 250, 123, 0.15); }
+.traffic-menu .internet-info.disconnected { color: var(--col-error);   background: rgba(255, 85, 85, 0.15); }
+
+/* =========================================
+   WIDGET: MEDIA PLAYER
+   ========================================= */
+.media-widget {
+    background: var(--grad-media);
+}
+
+.media-widget .btn.play,
+.media-widget .btn.pause,
+.media-widget .btn.prev,
+.media-widget .btn.next {
+    margin: 0 4px 0 4px;
+    font-size: var(--icon-size);
+}
+.media-widget .label {
+    font-size: 12px;
+    padding: 0 0 0 8px;
+}
+
+/* Menu Média */
+.media-menu .source {
+    background-color: var(--bg-darker);
+    color: var(--col-dim);
+    border-radius: var(--radius);
+    padding: 4px;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.media-menu .btn {
+    background: var(--bg-base);
+    border-style: solid;
+    border-width: var(--border-w);
+    border-color: var(--light-source) var(--shadow-source) var(--shadow-source) var(--light-source);
+}
+.media-menu .btn:hover {
+    background: var(--bg-lighter);
+    color: var(--col-cyan);
+}
+
+.media-menu .progress-slider::groove {
+    background: var(--bg-darker);
+    height: 8px;
+    border-top: 1px solid var(--shadow-source);
+    border-left: 1px solid var(--shadow-source);
+    border-bottom: 1px solid var(--light-source);
+}
+.media-menu .progress-slider::sub-page {
+    background: var(--grad-warm);
+}
+
+/* =========================================
+   WIDGET: SYSTEM INFO (CPU/GPU/RAM)
+   ========================================= */
+/* Ces classes ont été ajoutées pour correspondre à votre demande */
+
+.cpu-widget {
+    background: var(--grad-cpu);
+}
+
+.gpu-widget {
+    background: var(--grad-gpu);
+}
+
+.memory-widget {
+    background: var(--grad-mem);
+}
+
+.systray,
+.systray:hover {
+    background: transparent;
+    border: none;
+}
+
+
+.systray .button,
+.systray .unpinned-visibility-btn {
+    background: transparent;
+    border: none;
+    padding: 0 8px;
+}
+
+.systray .button[dragging=true] {
+    background: orange;
+    border-color: #FF8800;
+}
+
+.systray .unpinned-visibility-btn {
+    color: var(--col-dim);
+}
+
+
+/* =========================================
+   WIDGET: NOTIFICATION
+   ========================================= */
+.notification-widget {
+    background: var(--col-white);
+    /* Forcer le texte en noir car le fond est très clair */
+    color: var(--col-true-black); 
+}
+.notification-widget .icon {
+    color: var(--col-true-black);
+}
+
+/* =========================================
+   WIDGET: LANGUAGE
+   ========================================= */
+.language-widget {
+    background: var(--grad-lang);
+}
+
+/* =========================================
+   WIDGET: VOLUME (Slider)
+   ========================================= */
+
+.volume-widget {
+    background: var(--grad-vol);
+}
+
+.volume-slider::groove {
+    background: var(--bg-darker);
+    height: 10px;
+    border-radius: var(--radius);
+    border-style: solid;
+    border-width: var(--border-w);
+    border-color: var(--shadow-source) var(--light-source) var(--light-source) var(--shadow-source);
+}
+
+.volume-slider::sub-page {
+    background: var(--grad-neon);
+    border-radius: var(--radius);
+}
+
+.volume-slider::handle {
+    background: var(--col-white);
+    width: 14px;
+    height: 14px;
+    border-radius: 0px; 
+    border-style: solid;
+    border-width: var(--border-w);
+    border-color: #ffffff #555555 #555555 #ffffff;
+    margin: -2px 0;
+}
+
+/* =========================================
+   WIDGET: POWER MENU
+   ========================================= */
+.power-menu-popup .button {
+    background-color: var(--bg-base);
+    margin: 4px;
+    border-style: solid;
+    border-width: var(--border-w);
+    border-color: var(--light-source) var(--shadow-source) var(--shadow-source) var(--light-source);
+}
+.power-menu-popup .button:hover {
+    background-color: var(--bg-lighter);
+    border-color: var(--col-accent);
+}
+.power-menu-popup .button .icon {
+    color: var(--col-error);
+}
+
+/* =========================================
+   WIDGET: CALENDAR & WEATHER
+   ========================================= */
+
+.weather-card .hourly-container {
+    background: var(--grad-weather);
+    border-style: solid;
+    border-width: var(--border-w);
+    border-color: var(--shadow-source) var(--light-source) var(--light-source) var(--shadow-source);
+}
+.weather-card-day:hover { background: rgba(255, 255, 255, 0.1); }
+
+.weather-widget .icon.sunnyDay  { color: var(--col-yellow); }
+.weather-widget .icon.rainyDay  { color: var(--col-cyan); }
+.weather-widget .icon.cloudyDay { color: var(--col-warning); }
+
+
+/* =========================================
+   WIDGET: CLOCK & CALENDAR
+   ========================================= */
+
+/* 1. Le Widget sur la barre */
+.clock-widget {
+    background: var(--grad-clock);
+}
+
+/* Override de l'ancienne couleur d'icone */
+.clock-widget .icon {
+    color: var(--col-black); 
+}
+.clock-widget .label {
+    padding: 0 4px;
+}
+
+/* 2. Le Conteneur Principal (Calendrier, Alarme, Timer) */
+.clock-popup {
+    background-color: var(--bg-base);
+    min-width: 320px; 
+    padding: 8px;
+    
+    border-style: solid;
+    border-width: var(--border-w);
+    border-color: var(--light-source) var(--shadow-source) var(--shadow-source) var(--light-source);
+    border: 2px solid var(--bg-lighter); 
+}
+
+/* 3. Le Calendrier (Grille) */
+.clock-popup .date-label {
+    color: var(--col-accent);
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 8px;
+    border-bottom: 2px solid var(--bg-darker);
+    padding-bottom: 4px;
+}
+
+.clock-popup .calendar-table::item {
+    font-family: var(--font-main);
+    color: var(--col-dim);
+}
+
+.clock-popup .calendar-table::item:selected {
+    background: var(--grad-neon);
+    color: var(--bg-bar);
+    border-radius: var(--radius);
+}
+
+.clock-popup .calendar-table::item:hover {
+    background-color: var(--bg-lighter);
+    color: var(--col-white);
+}
+
+/* 4. Les Boutons */
+.clock-popup .button {
+    background-color: var(--bg-base);
+    font-family: var(--font-main);
+    color: var(--col-white);
+    border-radius: var(--radius);
+    margin: 2px;
+    padding: 4px 8px;
+
+    border-style: solid;
+    border-width: var(--border-w);
+    border-color: var(--light-source) var(--shadow-source) var(--shadow-source) var(--light-source);
+}
+
+.clock-popup .button:hover {
+    background-color: var(--bg-lighter);
+    color: var(--col-cyan);
+    transform: translate(0, 1px); 
+}
+
+.clock-popup .button.save, 
+.clock-popup .button.start { color: var(--col-success); }
+.clock-popup .button.delete,
+.clock-popup .button.cancel { color: var(--col-error); }
+
+/* 5. Les Champs de saisie */
+.clock-popup .clock-input-time,
+.clock-popup .alarm-input-title {
+    background-color: var(--bg-darker);
+    color: var(--col-yellow);
+    font-family: var(--font-main);
+    border: none;
+    text-align: center;
+    
+    border-style: solid;
+    border-width: var(--border-w);
+    border-color: var(--shadow-source) var(--light-source) var(--light-source) var(--shadow-source);
+}
