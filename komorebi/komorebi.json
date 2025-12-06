@@ -1,43 +1,40 @@
 {
-  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.37/schema.json",
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.38/schema.json",
+  "app_specific_configuration_path": "$Env:KOMOREBI_CONFIG_HOME/applications.json",
+
+  "global_work_area_offset": {"bottom": 24, "left": 0, "right": 0, "top": 32},
+  "default_workspace_padding": 24,
+  "default_container_padding": 24,
+  "border_implementation": "Komorebi",
+  "border": true,
+  "border_width": 8,
+  "border_offset": -1,
+
+  "float_rule_placement": "Center",
+  "mouse_follows_focus": false,
+
   "minimum_window_width": 0,
   "minimum_window_height": 0,
   "resize_delta": 500,
-  "window_container_behaviour": "Create",
-  "float_override": false,
-  "floating_layer_behaviour": "Tile",
-  "toggle_float_placement": "CenterAndResize",
-  "floating_layer_placement": "CenterAndResize",
-  "float_override_placement": "CenterAndResize",
-  "float_rule_placement": "Center",
-  "cross_monitor_move_behaviour": "Insert",
-  "cross_boundary_behaviour": "Workspace",
-  "mouse_follows_focus": false,
-  "border_width": 6,
-  "animation": {
-    "enabled": true,
-    "duration": 100,
-    "fps": 100,
-    "style": "EaseOutSine"
-  },
+
   "border_colours": {
     "single" : { "r": 255, "g": 23, "b": 150 },
     "stack" : { "r": 255, "g": 23, "b": 150 },
     "monocle" : { "r": 255, "g": 23, "b": 150 }
   },
-  "border_offset": -1,
-  "border": false,
-  "border_style": "Rounded",
-  "border_implementation": "Komorebi",
-  "transparency": false,
-  "transparency_alpha": 200,
-  "default_workspace_padding": 16,
-  "default_container_padding": 16,
-  "global_work_area_offset": {"bottom": 18, "left": 0, "right": 0, "top": 22},
+
+  "animation": {
+    "enabled": true,
+    "duration": 100,
+    "fps": 144,
+    "style": "EaseOutSine"
+  },
+
   "monitors": [
     {
       "window_based_work_area_offset_limit": 1,
       "window_based_work_area_offset": {"bottom": 0, "left": 500, "right": 1000, "top": 0},
+
       "workspaces": [
         {
           "name": "I",
@@ -127,88 +124,6 @@
       ]
     }
   ],
-  "window_hiding_behaviour": "Cloak",
-  "object_name_change_title_ignore_list": [],
-  "monitor_index_preferences": {},
-  "display_index_preferences": {},
-  "remove_titlebar_applications": [],
-  "floating_window_aspect_ratio": "Standard",
-  "window_handling_behaviour": "Sync",
-  "floating_applications": [
-    {
-      "kind": "Exe",
-      "id": "Mullvad VPN.exe"
-    },
-    {
-      "kind": "Exe",
-      "id": "OneCommander.exe",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Exe",
-      "id": "blender.exe",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Class",
-      "id": "ApplicationFrameWindow",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Exe",
-      "id": "SnippingTool.exe"
-    },
-    {
-      "kind": "Exe",
-      "id": "Premiere Pro",
-      "matching_strategy": "Legacy"
-    },
-    {
-      "kind": "Exe",
-      "id": "Photoshop.exe"
-    },
-    {
-      "kind": "Exe",
-      "id": "Illustrator.exe"
-    },
-    {
-      "kind": "Exe",
-      "id": "Adobe Media Encoder.exe"
-    },
-    {
-      "kind": "Exe",
-      "id": "Adobe Audition.exe"
-    },
-    {
-      "kind": "Title",
-      "id": "Settings"
-    },
-    {
-      "kind": "Exe",
-      "id": "Taskmgr.exe"
-    },
-    {
-      "kind": "Exe",
-      "id": "AutoHotkey64_UIA.exe"
-    },
-    {
-      "kind": "Exe",
-      "id": "Flow.Launcher.exe"
-    },
-    {
-      "kind": "Exe",
-      "id": "IDMan.exe"
-    },
-    {
-      "kind": "Exe",
-      "id": "AutoHotkeyUX.exe"
-    },
-    {
-      "kind": "Class",
-      "id": "TFruityLoopsMainForm",
-      "matching_strategy": "Equals"
-    }
-  ],
   "ignore_rules": [
     {
       "kind": "Exe",
@@ -229,3 +144,4 @@
     } 
   ]
 }
+

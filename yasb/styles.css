@@ -62,8 +62,8 @@
     --grad-komorebi-1:      #00ff99;    --grad-komorebi-2:      #00cde0;
     --grad-komorebi:    qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-komorebi-1), stop:1 var(--grad-komorebi-2));
 
-    --grad-cpu-1:           #ff2323;    --grad-cpu-2:           #5c0000;
-    --grad-cpu:         qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-cpu-1), stop:1 var(--grad-cpu-2));
+    --grad-red-1:           #ff2323;    --grad-red-2:           #5c0000;
+    --grad-red:         qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-red-1), stop:1 var(--grad-red-2));
 
     --grad-gpu-1:           #85c1ff;    --grad-gpu-2:           #4b81ff;
     --grad-gpu:         qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-gpu-1), stop:1 var(--grad-gpu-2));
@@ -94,6 +94,8 @@
     padding: 0;
 }
 
+
+
 /* =========================================
    STRUCTURE PRINCIPALE
    ========================================= */
@@ -120,12 +122,9 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    line-height: 1; /* Reset line-height pour meilleur centrage icone */
+    line-height: 1; 
 }
 
-.widget:hover {
-    background: var(--bg-lighter);
-}
 
 /* Icones génériques */
 .icon {
@@ -147,185 +146,99 @@
     padding: 4px 8px;
 }
 
-/* =========================================
-   STYLES DES POPUPS / MENUS
-   ========================================= */
-.power-menu-popup, 
-.traffic-menu, 
-.weather-card, 
-.calendar, 
-.media-menu,
-.language-menu,
-.audio-menu {
-    background-color: var(--bg-base);
-    padding: 4px;
-    /* Double bordure simulée */
-    border-style: solid;
-    border-width: var(--border-w);
-    border-color: var(--light-source) var(--shadow-source) var(--shadow-source) var(--light-source);
-    border: 2px solid var(--bg-lighter); 
-    border-radius: 0;
-}
 
 /* =========================================
-   WIDGETS: KOMOREBI (Workspaces)
+   WIDGETS: TRANSPARENCY & GRADIENT TEXT (GROUPED)
    ========================================= */
-.komorebi-workspaces {
-    background: var(--grad-komorebi);
+/* Liste de tous les widgets qui n'ont plus de boite 
+   mais qui affichent du texte coloré.
+*/
+
+.power-menu-widget,
+.cpu-widget,
+.gpu-widget,
+.memory-widget,
+.language-widget,
+.active-window-widget,
+.volume-widget,
+.komorebi-workspaces,
+.bluetooth-widget,
+.traffic-widget,
+.media-widget,
+.clock-widget,
+.weather-widget { 
+    border: none; 
+    background: transparent; 
 }
 
+
+/* --- Application des couleurs spécifiques (Dégradés) --- */
+
+/* Power */
+.power-menu-widget .icon, .power-menu-widget .label { color: var(--grad-red); }
+
+/* CPU */
+.cpu-widget .icon, .cpu-widget .label { color: var(--grad-red); }
+
+/* GPU */
+.gpu-widget .icon, .gpu-widget .label { color: var(--grad-gpu); }
+
+/* MEMORY */
+.memory-widget .icon, .memory-widget .label { color: var(--grad-mem); }
+
+/* LANGUAGE */
+.language-widget .icon, .language-widget .label { color: var(--grad-lang); }
+
+/* ACTIVE WINDOW */
+.active-window-widget .widget-container .label { margin: 0 8px 0 0; color: var(--col-dim); }
+
+/* VOLUME */
+.volume-widget .label { color: var(--grad-vol); }
+.volume-widget .icon { color: var(--grad-vol); } /* Ajout de l'icone aussi pour cohérence */
+
+/* KOMOREBI (Workspaces) */
 .komorebi-workspaces .ws-btn {
     font-size: var(--icon-size);
     background-color: transparent;
     padding: 2px 6px;
     margin: 0 1px;
     border-radius: var(--radius);
+    color: var(--grad-komorebi); /* Couleur texte dégradé */
 }
 
-/* =========================================
-   WIDGET: BLUETOOTH
-   ========================================= */
-.bluetooth-widget {
-    background: var(--grad-bt);
-}
-
-/* =========================================
-   WIDGETS: ACTIVE WINDOW
-   ========================================= */
-.active-window-widget {
-    background: var(--grad-neon);
-    color: var(--bg-bar);
-    padding: 0 15px;
-    margin: 2px 3px;
-    border-radius: var(--radius);
-    
-    border-style: solid;
-    border-width: var(--border-w);
-    border-color: rgba(255,255,255,0.4) rgba(0,0,0,0.2) rgba(0,0,0,0.2) rgba(255,255,255,0.4);
-}
-
-/* =========================================
-   WIDGET: TRAFFIC
-   ========================================= */
-.traffic-widget {
-    background: var(--grad-traffic);
-}
-
+/* TRAFFIC */
+.traffic-widget .icon, .traffic-widget .label { color: var(--grad-traffic); }
 .traffic-widget .icon.offline { color: var(--col-error); }
 
-.traffic-menu .header .title {
-    background: var(--grad-neon);
-    color: var(--bg-bar);
-    border: 1px solid var(--light-source);
-    margin-bottom: 6px;
-}
-
-.traffic-menu .section {
-    color: var(--col-dim);
-    background: var(--bg-darker);
-    margin: 4px 0;
-    /* Effet Enfoncé */
-    border-style: solid;
-    border-width: var(--border-w);
-    border-color: var(--shadow-source) var(--light-source) var(--light-source) var(--shadow-source);
-}
-
-/* Etats Internet (Menu Traffic) */
-.traffic-menu .internet-info {
-    padding: 4px 8px;
-    margin: 4px;
-    border-radius: var(--radius);
-    text-align: center;
-    border-style: solid;
-    border-width: var(--border-w);
-    border-color: var(--shadow-source) var(--light-source) var(--light-source) var(--shadow-source);
-}
-.traffic-menu .internet-info.checking     { color: var(--col-yellow); background: rgba(241, 250, 140, 0.15); }
-.traffic-menu .internet-info.connected    { color: var(--col-success); background: rgba(80, 250, 123, 0.15); }
-.traffic-menu .internet-info.disconnected { color: var(--col-error);   background: rgba(255, 85, 85, 0.15); }
-
-/* =========================================
-   WIDGET: MEDIA PLAYER
-   ========================================= */
-.media-widget {
-    background: var(--grad-media);
-}
-
+/* MEDIA PLAYER */
 .media-widget .btn.play,
-.media-widget .btn.pause,
 .media-widget .btn.prev,
-.media-widget .btn.next {
-    margin: 0 4px 0 4px;
-    font-size: var(--icon-size);
-}
+.media-widget .btn.next,
 .media-widget .label {
-    font-size: 12px;
+    color: var(--col-white);
     padding: 0 0 0 8px;
 }
 
-/* Menu Média */
-.media-menu .source {
-    background-color: var(--bg-darker);
-    color: var(--col-dim);
-    border-radius: var(--radius);
-    padding: 4px;
-    text-transform: uppercase;
-    font-size: 10px;
-    letter-spacing: 1px;
+.media-widget .btn.play,
+.media-widget .btn.prev,
+.media-widget .btn.next {
+    font-size: 18px;
 }
 
-.media-menu .btn {
-    background: var(--bg-base);
-    border-style: solid;
-    border-width: var(--border-w);
-    border-color: var(--light-source) var(--shadow-source) var(--shadow-source) var(--light-source);
-}
-.media-menu .btn:hover {
-    background: var(--bg-lighter);
-    color: var(--col-cyan);
-}
-
-.media-menu .progress-slider::groove {
-    background: var(--bg-darker);
-    height: 8px;
-    border-top: 1px solid var(--shadow-source);
-    border-left: 1px solid var(--shadow-source);
-    border-bottom: 1px solid var(--light-source);
-}
-.media-menu .progress-slider::sub-page {
-    background: var(--grad-warm);
+/* CLOCK */
+.clock-widget .icon, .clock-widget .label { 
+    color: var(--grad-clock);
+    padding: 0 4px;
 }
 
 /* =========================================
-   WIDGET: SYSTEM INFO (CPU/GPU/RAM)
+   SYSTRAY
    ========================================= */
-/* Ces classes ont été ajoutées pour correspondre à votre demande */
-
-.cpu-widget {
-    background: var(--grad-cpu);
-}
-
-.gpu-widget {
-    background: var(--grad-gpu);
-}
-
-.memory-widget {
-    background: var(--grad-mem);
-}
-
 .systray,
-.systray:hover {
-    background: transparent;
-    border: none;
-}
-
+.systray:hover { background: transparent; border: none; }
 
 .systray .button,
-.systray .unpinned-visibility-btn {
-    background: transparent;
-    border: none;
-    padding: 0 8px;
-}
+.systray .unpinned-visibility-btn { background: transparent; border: none; padding: 0 8px; }
 
 .systray .button[dragging=true] {
     background: orange;
@@ -336,184 +249,3 @@
     color: var(--col-dim);
 }
 
-
-/* =========================================
-   WIDGET: NOTIFICATION
-   ========================================= */
-.notification-widget {
-    background: var(--col-white);
-    /* Forcer le texte en noir car le fond est très clair */
-    color: var(--col-true-black); 
-}
-.notification-widget .icon {
-    color: var(--col-true-black);
-}
-
-/* =========================================
-   WIDGET: LANGUAGE
-   ========================================= */
-.language-widget {
-    background: var(--grad-lang);
-}
-
-/* =========================================
-   WIDGET: VOLUME (Slider)
-   ========================================= */
-
-.volume-widget {
-    background: var(--grad-vol);
-}
-
-.volume-slider::groove {
-    background: var(--bg-darker);
-    height: 10px;
-    border-radius: var(--radius);
-    border-style: solid;
-    border-width: var(--border-w);
-    border-color: var(--shadow-source) var(--light-source) var(--light-source) var(--shadow-source);
-}
-
-.volume-slider::sub-page {
-    background: var(--grad-neon);
-    border-radius: var(--radius);
-}
-
-.volume-slider::handle {
-    background: var(--col-white);
-    width: 14px;
-    height: 14px;
-    border-radius: 0px; 
-    border-style: solid;
-    border-width: var(--border-w);
-    border-color: #ffffff #555555 #555555 #ffffff;
-    margin: -2px 0;
-}
-
-/* =========================================
-   WIDGET: POWER MENU
-   ========================================= */
-.power-menu-popup .button {
-    background-color: var(--bg-base);
-    margin: 4px;
-    border-style: solid;
-    border-width: var(--border-w);
-    border-color: var(--light-source) var(--shadow-source) var(--shadow-source) var(--light-source);
-}
-.power-menu-popup .button:hover {
-    background-color: var(--bg-lighter);
-    border-color: var(--col-accent);
-}
-.power-menu-popup .button .icon {
-    color: var(--col-error);
-}
-
-/* =========================================
-   WIDGET: CALENDAR & WEATHER
-   ========================================= */
-
-.weather-card .hourly-container {
-    background: var(--grad-weather);
-    border-style: solid;
-    border-width: var(--border-w);
-    border-color: var(--shadow-source) var(--light-source) var(--light-source) var(--shadow-source);
-}
-.weather-card-day:hover { background: rgba(255, 255, 255, 0.1); }
-
-.weather-widget .icon.sunnyDay  { color: var(--col-yellow); }
-.weather-widget .icon.rainyDay  { color: var(--col-cyan); }
-.weather-widget .icon.cloudyDay { color: var(--col-warning); }
-
-
-/* =========================================
-   WIDGET: CLOCK & CALENDAR
-   ========================================= */
-
-/* 1. Le Widget sur la barre */
-.clock-widget {
-    background: var(--grad-clock);
-}
-
-/* Override de l'ancienne couleur d'icone */
-.clock-widget .icon {
-    color: var(--col-black); 
-}
-.clock-widget .label {
-    padding: 0 4px;
-}
-
-/* 2. Le Conteneur Principal (Calendrier, Alarme, Timer) */
-.clock-popup {
-    background-color: var(--bg-base);
-    min-width: 320px; 
-    padding: 8px;
-    
-    border-style: solid;
-    border-width: var(--border-w);
-    border-color: var(--light-source) var(--shadow-source) var(--shadow-source) var(--light-source);
-    border: 2px solid var(--bg-lighter); 
-}
-
-/* 3. Le Calendrier (Grille) */
-.clock-popup .date-label {
-    color: var(--col-accent);
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 8px;
-    border-bottom: 2px solid var(--bg-darker);
-    padding-bottom: 4px;
-}
-
-.clock-popup .calendar-table::item {
-    font-family: var(--font-main);
-    color: var(--col-dim);
-}
-
-.clock-popup .calendar-table::item:selected {
-    background: var(--grad-neon);
-    color: var(--bg-bar);
-    border-radius: var(--radius);
-}
-
-.clock-popup .calendar-table::item:hover {
-    background-color: var(--bg-lighter);
-    color: var(--col-white);
-}
-
-/* 4. Les Boutons */
-.clock-popup .button {
-    background-color: var(--bg-base);
-    font-family: var(--font-main);
-    color: var(--col-white);
-    border-radius: var(--radius);
-    margin: 2px;
-    padding: 4px 8px;
-
-    border-style: solid;
-    border-width: var(--border-w);
-    border-color: var(--light-source) var(--shadow-source) var(--shadow-source) var(--light-source);
-}
-
-.clock-popup .button:hover {
-    background-color: var(--bg-lighter);
-    color: var(--col-cyan);
-    transform: translate(0, 1px); 
-}
-
-.clock-popup .button.save, 
-.clock-popup .button.start { color: var(--col-success); }
-.clock-popup .button.delete,
-.clock-popup .button.cancel { color: var(--col-error); }
-
-/* 5. Les Champs de saisie */
-.clock-popup .clock-input-time,
-.clock-popup .alarm-input-title {
-    background-color: var(--bg-darker);
-    color: var(--col-yellow);
-    font-family: var(--font-main);
-    border: none;
-    text-align: center;
-    
-    border-style: solid;
-    border-width: var(--border-w);
-    border-color: var(--shadow-source) var(--light-source) var(--light-source) var(--shadow-source);
-}

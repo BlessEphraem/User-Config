@@ -1,6 +1,6 @@
 watch_stylesheet: true
 watch_config: true
-debug: true
+debug: false
 
 komorebi:
   start_command: "komorebic start"
@@ -11,7 +11,7 @@ bars:
   status-bar:
 
     enabled: true
-    screens: ['*'] 
+    screens: ['*']
     class_name: "yasb-bar"
 
     window_flags:
@@ -23,9 +23,11 @@ bars:
     alignment:
       position: "top"
       align: "center"
+
     dimensions:
       width: "100%"
       height: 40
+      
     padding:
       top: 0
       left: 0
@@ -42,9 +44,7 @@ bars:
     widgets:
       left:
         [
-          "power_menu",
           "komorebi_workspaces",
-          "bluetooth",
           "media",
           "traffic",
           
@@ -61,7 +61,6 @@ bars:
           "language",
           "volume",
           "clock",
-          "notifications",
         ]
 widgets:
   media:
@@ -96,18 +95,6 @@ widgets:
             next_track: "󰒭"
             play: "󰐊"
             pause: "󰏤"
-          media_menu:
-            blur: false
-            round_corners: false
-            alignment: "right"
-            direction: "down"
-            offset_top: 6
-            offset_left: 0
-            thumbnail_corner_radius: 0
-            thumbnail_size: 120
-            max_title_size: 80
-            max_artist_size: 20
-            show_source: true
           media_menu_icons:
             prev_track: "⏮︎"
             next_track: "⏭︎"
@@ -147,20 +134,6 @@ widgets:
         enabled: "\uf0f3"
         disabled: "\uf0a2"
         snooze: "\uf1f6"
-      calendar: 
-        blur: true
-        round_corners: false
-        round_corners_type: "normal"
-        border_color: "system"
-        alignment: "center"
-        direction: "down"
-        offset_top: 6
-        offset_left: 0
-        show_holidays: false
-        show_week_numbers: true
-        country_code: "AR"
-        holiday_color: "#FF6464"
-        extended: false
       callbacks:
         on_left: "toggle_calendar"
         on_middle: "next_timezone"
@@ -190,38 +163,10 @@ widgets:
           color: "black"
           radius: 26
           offset: [ 0, 0 ]
-  komorebi_active_layout:
-      type: "komorebi.active_layout.ActiveLayoutWidget"
-      options:
-        hide_if_offline: true
-        label: "{icon}"
-        layouts: ['bsp', 'columns', 'rows', 'grid', 'vertical_stack', 'horizontal_stack', 'ultrawide_vertical_stack','right_main_vertical_stack']
-        layout_icons:
-          bsp: "BSP"
-          columns: "COLS"
-          rows: "ROWS"
-          grid: "GRID"
-          vertical_stack: "V-STACK"
-          horizontal_stack: "H-STACK"
-          ultrawide_vertical_stack: "W-STACK"
-          right_main_vertical_stack: "RMV-STACK"
-          monocle: "MONOCLE"
-          maximised: "MAX"
-          floating: "FLOATING"
-          paused: "PAUSED"
-        callbacks:
-          on_left: 'next_layout'
-          on_middle: 'toggle_monocle'
-          on_right: 'prev_layout'
-        btn_shadow:
-          enabled: true
-          color: "black"
-          radius: 26
-          offset: [ 0, 0 ]
   volume:
       type: "yasb.volume.VolumeWidget"
       options:
-        label: "<span>{icon}</span> {level}"
+        label: "{level}"
         label_alt: "{volume}"
         volume_icons:
           - "\ueee8"  # Icon for muted
@@ -252,39 +197,6 @@ widgets:
           color: "black"
           radius: 26
           offset: [ 0, 0 ]
-  power_menu:
-      type: "yasb.power_menu.PowerMenuWidget"
-      options:
-        label: "\uf011"
-        uptime: True
-        blur: False
-        blur_background: True
-        animation_duration: 250 # Milisecond 
-        button_row: 5 # Number of buttons in row, min 1 max 5
-        buttons:
-          signout: ["\udb80\udf43","Sign out"]
-          shutdown: ["\uf011","Shut Down"]
-          restart: ["\uead2","Restart"]
-          hibernate: ["\uf28e","Hibernate"]
-          cancel: ["\udb81\udf3a","Cancel"]
-        label_shadow:
-          enabled: true
-          color: "black"
-          radius: 26
-          offset: [ 0, 0 ]
-  custom_button:
-      type: "yasb.custom.CustomWidget"
-      options:
-        label: "<span>\ue22e</span>"
-        label_alt: "<span>\uf40e</span>"
-        class_name: "start-menu"
-        callbacks:
-          on_left: "exec start_menu"
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 26
-        offset: [ 0, 0 ]
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
     options:
@@ -296,30 +208,6 @@ widgets:
       max_length: 200
       max_length_ellipsis: "..."
       monitor_exclusive: true
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 26
-        offset: [ 0, 0 ]
-  bluetooth:
-    type: "yasb.bluetooth.BluetoothWidget"
-    options:
-      label: "<span>{icon}</span> {device_count}"
-      label_alt: "{device_name}"
-      label_no_device: "No devices connected"
-      label_device_separator: ", "
-      max_length: 10
-      max_length_ellipsis: "..."
-      icons: 
-        bluetooth_on: "\udb80\udcaf"
-        bluetooth_off: "\udb80\udcb2"
-        bluetooth_connected: "\udb80\udcb1"
-      device_aliases:
-        - name: "T5.0"
-          alias: "\uf025"
-      callbacks:
-        on_left: "toggle_label"
-        on_right: "exec cmd.exe /c start ms-settings:bluetooth"
       label_shadow:
         enabled: true
         color: "black"
@@ -366,53 +254,6 @@ widgets:
         offset_left: 0
         show_layout_icon: true
         layout_icon: "\uf11c"
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 26
-        offset: [ 0, 0 ]
-  pomodoro:
-    type: "yasb.pomodoro.PomodoroWidget"
-    options:
-      label: "<span>{icon}</span> {remaining}"
-      label_alt: "<span>{icon}</span> {session}/{total_sessions} - {status}"
-      work_duration: 25
-      break_duration: 5
-      long_break_duration: 15
-      long_break_interval: 4
-      auto_start_breaks: true
-      auto_start_work: true
-      sound_notification: true
-      show_notification: true
-      hide_on_break: false
-      session_target: 8
-      icons:
-        work: "\uf252"
-        break: "\uf253"
-        paused: "\uf254"
-      container_padding:
-        top: 0
-        left: 12
-        bottom: 0
-        right: 12
-      menu:
-        blur: true
-        round_corners: false
-        round_corners_type: "normal"
-        border_color: "System"
-        alignment: "right"
-        direction: "down"
-        offset_top: 6
-        offset_left: 0
-        circle_background_color: "#09ffffff"
-        circle_work_progress_color: "#88c0d0"
-        circle_break_progress_color: "#a3be8c"
-        circle_thickness: 8
-        circle_size: 160
-      callbacks:
-        on_left: "toggle_menu"
-        on_middle: "reset_timer"
-        on_right: "toggle_label"
       label_shadow:
         enabled: true
         color: "black"
@@ -514,27 +355,6 @@ widgets:
       callbacks:
         on_left: "toggle_label"
       label_shadow:
-        enabled: true
-        color: "black"
-        radius: 26
-        offset: [ 0, 0 ]
-  notifications:
-    type: "yasb.notifications.NotificationsWidget"
-    options:
-      label: "<span>\uf476</span> {count}"
-      label_alt: "{count} notifications"
-      hide_empty: true
-      tooltip: false
-      callbacks:
-        on_left: "toggle_notification"
-        on_right: "do_nothing"
-        on_middle: "toggle_label"
-      container_padding:
-        top: 0
-        left: 8
-        bottom: 0
-        right: 8
-    label_shadow:
         enabled: true
         color: "black"
         radius: 26
