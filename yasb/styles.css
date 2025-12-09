@@ -59,25 +59,25 @@
     --grad-bt-1:            #00c3ff;    --grad-bt-2:            #1100ff;
     --grad-bt:          qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-bt-1), stop:1 var(--grad-bt-2));
 
-    --grad-komorebi-1:      #00ff99;    --grad-komorebi-2:      #00cde0;
+    --grad-komorebi-1:      #00ff99;    --grad-komorebi-2:      #00aeff;
     --grad-komorebi:    qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-komorebi-1), stop:1 var(--grad-komorebi-2));
 
-    --grad-red-1:           #ff2323;    --grad-red-2:           #5c0000;
+    --grad-red-1:           #ff0000;    --grad-red-2:           #ff004c;
     --grad-red:         qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-red-1), stop:1 var(--grad-red-2));
 
-    --grad-gpu-1:           #85c1ff;    --grad-gpu-2:           #4b81ff;
+    --grad-gpu-1:           #0080ff;    --grad-gpu-2:           #004cff;
     --grad-gpu:         qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-gpu-1), stop:1 var(--grad-gpu-2));
 
-    --grad-mem-1:           #ffb86c;    --grad-mem-2:           #ff7f23;
+    --grad-mem-1:           #ffbb00;    --grad-mem-2:           #ff6a00;
     --grad-mem:         qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-mem-1), stop:1 var(--grad-mem-2));
 
-    --grad-clock-1:         #50fa7b;    --grad-clock-2:         #00802b;
+    --grad-clock-1:         #00ffb3;    --grad-clock-2:         #15ff00;
     --grad-clock:       qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-clock-1), stop:1 var(--grad-clock-2));
 
     --grad-vol-1:           #00e1ff;    --grad-vol-2:           #0091ff;
     --grad-vol:         qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-vol-1), stop:1 var(--grad-vol-2));
 
-    --grad-lang-1:          #ff79c6;    --grad-lang-2:          #d63384;
+    --grad-lang-1:          #ff0090;    --grad-lang-2:          #a50052;
     --grad-lang:        qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 var(--grad-lang-1), stop:1 var(--grad-lang-2));
             
 }
@@ -93,15 +93,18 @@
     margin: 0;
     padding: 0;
 }
-
-
+/* FOR DEBUG 
+.widget-container:hover {
+    background-color: blue;
+}
+*/
 
 /* =========================================
    STRUCTURE PRINCIPALE
    ========================================= */
 .yasb-bar {
     background-color: #00000000;
-    padding: 2px 4px;
+    padding: 4px 4px;
 }
 
 /* Widget par défaut (Effet 3D Sortant) */
@@ -200,30 +203,23 @@
 .komorebi-workspaces .ws-btn {
     font-size: var(--icon-size);
     background-color: transparent;
-    padding: 2px 6px;
+    padding: 2px 4px;
     margin: 0 1px;
     border-radius: var(--radius);
     color: var(--grad-komorebi); /* Couleur texte dégradé */
 }
+
 
 /* TRAFFIC */
 .traffic-widget .icon, .traffic-widget .label { color: var(--grad-traffic); }
 .traffic-widget .icon.offline { color: var(--col-error); }
 
 /* MEDIA PLAYER */
-.media-widget .btn.play,
-.media-widget .btn.prev,
-.media-widget .btn.next,
 .media-widget .label {
-    color: var(--col-white);
+    color: var(--col-dim);
     padding: 0 0 0 8px;
 }
 
-.media-widget .btn.play,
-.media-widget .btn.prev,
-.media-widget .btn.next {
-    font-size: 18px;
-}
 
 /* CLOCK */
 .clock-widget .icon, .clock-widget .label { 

@@ -6,7 +6,7 @@
   "default_workspace_padding": 24,
   "default_container_padding": 24,
   "border_implementation": "Komorebi",
-  "border": true,
+  "border": false,
   "border_width": 8,
   "border_offset": -1,
 
@@ -141,6 +141,10 @@
     {
       "kind": "Exe",
       "id": "SndVol.exe"
+    },
+    {
+      "kind": "Exe",
+      "id": "FlowLauncher.exe"
     } 
   ]
 }

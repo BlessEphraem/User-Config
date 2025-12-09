@@ -46,11 +46,11 @@ bars:
         [
           "komorebi_workspaces",
           "media",
-          "traffic",
           
         ]
       center: [
           "active_window",
+          "traffic",
         ]
       right:
         [
@@ -66,16 +66,11 @@ widgets:
   media:
         type: "yasb.media.MediaWidget"
         options:
-          label: "<span></span>{artist} - {title}"
-          label_alt: "<span></span> "
+          label: "@{artist} | {title}"
+          label_alt: "{title}"
+          controls_hide: true
+          hide_empty: true
           show_thumbnail: false
-          controls_only: false
-          controls_left: true
-          controls_hide: false
-          hide_empty: false
-          thumbnail_alpha: 80
-          thumbnail_padding: 0
-          thumbnail_corner_radius: 0
           callbacks:
             on_left: "toggle_media_menu"
           max_field_size:
@@ -96,15 +91,10 @@ widgets:
             play: "󰐊"
             pause: "󰏤"
           media_menu_icons:
-            prev_track: "⏮︎"
-            next_track: "⏭︎"
-            play: "󰐌"
-            pause: "⏸"
-          label_shadow:
-            enabled: true
-            color: "black"
-            radius: 26
-            offset: [ 0, 0 ]
+            play: "\ue768"
+            pause: "\ue769"
+            prev_track: "\ue892"
+            next_track: "\ue893"
   clock:
     type: "yasb.clock.ClockWidget"
     options:
@@ -143,11 +133,7 @@ widgets:
         left: 0
         bottom: 0
         right: 0
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 26
-        offset: [ 0, 0 ]
+
   komorebi_workspaces:
       type: "komorebi.workspaces.WorkspaceWidget"
       options:
@@ -192,11 +178,7 @@ widgets:
           app_icons:
             toggle_down: "\uf078"
             toggle_up: "\uf077"
-        label_shadow:
-          enabled: true
-          color: "black"
-          radius: 26
-          offset: [ 0, 0 ]
+
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
     options:
@@ -208,11 +190,7 @@ widgets:
       max_length: 200
       max_length_ellipsis: "..."
       monitor_exclusive: true
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 26
-        offset: [ 0, 0 ]
+
   traffic:
     type: "yasb.traffic.TrafficWidget"
     options:
@@ -228,11 +206,7 @@ widgets:
       callbacks:
         on_left: "toggle_menu"
         on_right: "toggle_label"
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 26
-        offset: [ 0, 0 ]
+
   language:
     type: "yasb.language.LanguageWidget"
     options:
@@ -254,11 +228,7 @@ widgets:
         offset_left: 0
         show_layout_icon: true
         layout_icon: "\uf11c"
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 26
-        offset: [ 0, 0 ]
+
   cpu:
     type: "yasb.cpu.CpuWidget"
     options:
@@ -283,11 +253,7 @@ widgets:
       histogram_num_columns: 8
       callbacks:
         on_right: "exec cmd /c Taskmgr"
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 26
-        offset: [ 0, 0 ]
+
   systray:
     type: "yasb.systray.SystrayWidget"
     options:
@@ -326,11 +292,7 @@ widgets:
         - "\u2586" # 60%
         - "\u2587" # 70%
         - "\u2588" # 80%+
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 26
-        offset: [ 0, 0 ]
+
   gpu:
     type: "yasb.gpu.GpuWidget"
     options:
@@ -354,8 +316,4 @@ widgets:
       histogram_num_columns: 8
       callbacks:
         on_left: "toggle_label"
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 26
-        offset: [ 0, 0 ]
+
