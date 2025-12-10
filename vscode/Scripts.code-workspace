@@ -1,6 +1,11 @@
 {
     "folders": [
         {
+            "name": ".config",
+            "path": ".."
+        },
+        {
+            "name": "Scripts",
             "path": "Z:/Scripts"
         }
     ]
