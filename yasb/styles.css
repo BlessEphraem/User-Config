@@ -31,11 +31,11 @@
     
     /* Dimensions */
     --font-main:              "JetBrainsMono NFP", monospace;
-    --font-size:              14px;
-    --icon-size:              18px;
+    --font-size:                    14px;
+    --icon-size:                    18px;
     --icon-adjust:            -2px 0 0 0;
-    --radius:                 2px;     /* Arrondi léger */
-    --border-w:               2px;     /* Epaisseur du relief 3D */
+    --radius:                        2px;
+    --border-w:                      2px;
     
     /* Lumière et Ombre pour l'effet 3D */
     --light-source:         rgba(255, 255, 255, 0.15);

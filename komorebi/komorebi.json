@@ -114,10 +114,6 @@
             {
               "kind": "Exe",
               "id": "Pomodoro Logger.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "obs64.exe"
             }
           ]
         }
