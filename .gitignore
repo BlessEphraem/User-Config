@@ -1,4 +1,9 @@
 .*/
+.*
+
+*.rtf
+paths.ahk
+
 
 scoop/
 

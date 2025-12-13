@@ -127,6 +127,10 @@
     },
     {
       "kind": "Exe",
+      "id": "Mullvad VPN.exe"
+    },
+    {
+      "kind": "Exe",
       "id": "Magnifixer.exe",
       "matching_strategy": "Equals"
     },
