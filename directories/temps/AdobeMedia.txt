@@ -1,4 +1,0 @@
-"Z:\.caches\Adobe\Premiere Pro\Analyzer Cache Files"
-"Z:\.caches\Adobe\Premiere Pro\Media Cache"
-"Z:\.caches\Adobe\Premiere Pro\Media Cache Files"
-"Z:\.caches\Adobe\Premiere Pro\Peak Files"
