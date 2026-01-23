@@ -61,6 +61,14 @@
             {
               "kind": "Exe",
               "id": "Adobe Audition.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "blender.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "Resolve.exe"
             }
           ]
         },
@@ -97,7 +105,7 @@
       "workspaces": [
         {
           "name": "I",
-          "layout": "Rows",
+          "layout": "Columns",
           "initial_workspace_rules": [
             {
               "kind": "Exe",

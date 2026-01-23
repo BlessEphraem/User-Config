@@ -4,8 +4,10 @@
 *.rtf
 paths.ahk
 
-
 scoop/
+
+tasks_db.json
+task_db.json
 
 *.log
 *.log.*

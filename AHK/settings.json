@@ -92,6 +92,24 @@
                                     "is_path": "true"
                                 }
                             ]
+                        },
+                        {
+                            "type": "Resolve",
+                            "Active": "ahk_exe Resolve.exe",
+                            "is_include": "true",
+                            "is_path": "true",
+                            "children": [
+                                {
+                                    "type": "Classes",
+                                    "is_include": "true",
+                                    "is_path": "true"
+                                },
+                                {
+                                    "type": "Functions",
+                                    "is_include": "true",
+                                    "is_path": "true"
+                                }
+                            ]
                         }
                     ]
                 }

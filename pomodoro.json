@@ -1,8 +1,16 @@
 {
-    "work_duration": 25,
+    "work_duration": 60,
     "short_break_duration": 5,
     "long_break_duration": 15,
     "long_break_interval": 4,
     "auto_start": false,
-    "sound_enabled": true
+    "sound_enabled": true,
+    "theme": {
+        "work_color": "MAGENTA",
+        "short_break_color": "CYAN",
+        "long_break_color": "BLUE",
+        "border_color": "GREY",
+        "highlight_color": "YELLOW",
+        "text_color": "WHITE"
+    }
 }
